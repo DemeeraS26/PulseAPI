@@ -1,0 +1,8 @@
+cd api-sentinel/backend
+python -m pip install -r requirements.txt
+python -m uvicorn main:app --reload
+
+
+cd api-sentinel/frontend
+npm install
+npm run dev

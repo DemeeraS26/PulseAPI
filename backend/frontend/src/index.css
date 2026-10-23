@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   API SENTINEL THEME
+   ========================================================= */
+
+:root {
+  /* Dark theme */
+  --color-bg: 10 14 20;
+  --color-surface: 17 23 32;
+  --color-surface-alt: 22 29 40;
+  --color-surface-hover: 30 39 52;
+
+  --color-border: 43 53 68;
+  --color-border-light: 58 69 86;
+
+  --color-text-primary: 241 245 249;
+  --color-text-secondary: 148 163 184;
+  --color-text-tertiary: 100 116 139;
+
+  --color-accent: 245 166 35;
+  --color-accent-dim: 245 166 35;
+
+  --color-cyan: 34 211 238;
+  --color-success: 34 197 94;
+  --color-warning: 245 158 11;
+  --color-error: 239 68 68;
+  --color-info: 59 130 246;
+}
+
+/* Light theme */
+html.light {
+  --color-bg: 248 250 252;
+  --color-surface: 255 255 255;
+  --color-surface-alt: 241 245 249;
+  --color-surface-hover: 226 232 240;
+
+  --color-border: 203 213 225;
+  --color-border-light: 226 232 240;
+
+  --color-text-primary: 15 23 42;
+  --color-text-secondary: 71 85 105;
+  --color-text-tertiary: 100 116 139;
+
+  --color-accent: 217 119 6;
+  --color-accent-dim: 245 158 11;
+
+  --color-cyan: 8 145 178;
+  --color-success: 22 163 74;
+  --color-warning: 217 119 6;
+  --color-error: 220 38 38;
+  --color-info: 37 99 235;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: rgb(var(--color-bg));
+  color: rgb(var(--color-text-primary));
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+/* Make theme transitions apply to the major UI surfaces */
+* {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+::selection {
+  background: rgba(245, 166, 35, 0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-border-light));
+}
+
+/* Existing animations */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(245, 166, 35, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 166, 35, 0);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-enter {
+  animation: toast-in 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
